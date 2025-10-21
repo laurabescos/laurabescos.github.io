@@ -1,16 +1,11 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: Sobre mí
+subtitle: Breve presentación
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Me llamo Laura Bescós. Soy becaria en el área de sistemas en Arag. Actualmente estoy cursando segundo año de ASIR.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+### Formación
 
-What else do you need?
-
-### My story
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+Este año me graduo en ASIR y actualmente estoy desarrollando mis habilidades en Arag, donde colaboro en proyectos que me permiten aplicar lo aprendido y seguir aprendiendo cada día.
