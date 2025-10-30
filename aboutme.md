@@ -8,4 +8,4 @@ Me llamo Laura Bescós. Soy becaria en el área de sistemas en Arag. Actualmente
 
 ### Formación
 
-Este año me graduo en ASIR y actualmente estoy desarrollando mis habilidades en Arag, donde colaboro en proyectos que me permiten aplicar lo aprendido y seguir aprendiendo cada día.
+En el año 2026 me graduaré en ASIR. Actualmente estoy desarrollando mis habilidades en Arag, donde colaboro en proyectos que me permiten aplicar lo aprendido y seguir aprendiendo cada día.
