@@ -13,7 +13,7 @@ author: Laura Bescós Vives
 ###############################################
 
 navbar-links:
-  Sobre mi: "sobre mi"
+  Sobre mi: "aboutme"
   Trabajos:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
