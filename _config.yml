@@ -15,7 +15,7 @@ author: Laura Bescós Vives
 navbar-links:
   Sobre mi: "aboutme"
   Trabajos:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
+    - Creación de una web: "/assets/fcia.html"
     - Learn markdown: "https://www.markdowntutorial.com/"
   Currículum: "https://deanattali.com"
 
