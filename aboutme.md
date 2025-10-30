@@ -10,6 +10,6 @@ subtitle: Breve presentación
 ### Aptitudes
 
 Me considero una persona:
- - *Proactiva* puesto que me gusta anticiparme a los problemas
- - *Organizada*
- - Gran *capacidad de trabajar en equipo* 
+ - **Proactiva** puesto que me gusta anticiparme a los problemas
+ - **Organizada**
+ - Gran **capacidad de trabajar en equipo** 
