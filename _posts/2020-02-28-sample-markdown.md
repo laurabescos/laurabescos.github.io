@@ -1,8 +1,6 @@
 ---
 layout: post
 title: Sobre mí
-comments: true
-mathjax: true
 author: Laura Bescós
 ---
 
@@ -15,12 +13,6 @@ Me considero una persona:
  - **Proactiva** puesto que me gusta anticiparme a los problemas
  - **Organizada**
  - Gran **capacidad de trabajar en equipo** 
-
-**Here is some bold text**
-
-## Here is a secondary heading
-
-[This is a link to a different site](https://deanattali.com/) and [this is a link to a section inside this page](#local-urls).
 
 Here's a table:
 
