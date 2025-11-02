@@ -1,0 +1,33 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<channel>
+<title>Laura Bescós Vives</title>
+<description>Una breve introducción personal</description>
+<link>https://laurabescos.github.io/</link>
+<atom:link href="https://laurabescos.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>Sobre mí</title>
+  <description>¡Hola! Soy Laura. Actualmente estoy cursando segundo año de Administración de Sistemas Operativos en Red y Ciberseguridad (ASIR). Soy becaria en el área de sistemas en Arag donde colaboro en proyectos que me permiten aplicar lo aprendido y seguir aprendiendo cada día.</description>
+  
+<title2>Aptitudes</title2>
+<text>
+Me considero una persona:
+ - **Proactiva** puesto que me gusta anticiparme a los problemas
+ - **Organizada**
+ - Gran **capacidad de trabajar en equipo** 
+</text>
+  
+<dc:creator>
+<![CDATA[ Bill Smith ]]>
+</dc:creator>
+<description>¡Hola! Soy Laura. Actualmente estoy cursando segundo año de Administración de Sistemas Operativos en Red y Ciberseguridad (ASIR). Soy becaria en el área de sistemas en Arag donde colaboro en proyectos que me permiten aplicar lo aprendido y seguir aprendiendo cada día.</description>
+<title>Flake it till you make it</title>
+<dc:creator>
+<![CDATA[ Sharon Smith and Barry Simpson ]]>
+</dc:creator>
+<description> Excerpt from Soulshaping by Jeff Brown - Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who... </description>
+<pubDate>Wed, 26 Feb 2020 00:00:00 -0500</pubDate>
+<link>https://laurabescos.github.io/2020-02-26-flake-it-till-you-make-it/</link>
+<guid isPermaLink="true">https://laurabescos.github.io/2020-02-26-flake-it-till-you-make-it/</guid>
+</item>
+</channel>
+</rss>
