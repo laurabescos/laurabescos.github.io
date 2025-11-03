@@ -37,7 +37,7 @@ round-avatar: true
 collections:
   _blog:
     output: true
-    permalink: /_blog/:intro.md
+    permalink: /blog/:intro.md
 
 
 #####################################
