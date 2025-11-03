@@ -4,20 +4,22 @@ layout: page
 
 {{ content }}
 
-{% assign posts = site.blog %}
-
-{% for post in posts %}
-  <article>
-    <h2>{{ post.title }}</h2>
-    {% if post.subtitle %}
-      <h3>{{ post.subtitle }}</h3>
-    {% endif %}
-    {% if post.cover-img %}
-      <img src="{{ post.cover-img }}" alt="{{ post.title }}">
-    {% endif %}
-    <div>
-      {{ post.content }}
-    </div>
-    <hr>
-  </article>
-{% endfor %}
+{% if site.blog.size > 0 %}
+  {% for post in site.blog %}
+    <article>
+      <h2>{{ post.title }}</h2>
+      {% if post.subtitle %}
+        <h3>{{ post.subtitle }}</h3>
+      {% endif %}
+      {% if post.cover-img %}
+        <img src="{{ post.cover-img }}" alt="{{ post.title }}" style="max-width: 100%;">
+      {% endif %}
+      <div>
+        {{ post.content }}
+      </div>
+      <hr>
+    </article>
+  {% endfor %}
+{% else %}
+  <p>No hay posts disponibles.</p>
+{% endif %}
