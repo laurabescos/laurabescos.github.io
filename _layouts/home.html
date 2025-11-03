@@ -6,11 +6,18 @@ layout: page
 
 {% assign posts = site.blog %}
 
-<!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-<ul>
-  {% for post in posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+{% for post in posts %}
+  <article>
+    <h2>{{ post.title }}</h2>
+    {% if post.subtitle %}
+      <h3>{{ post.subtitle }}</h3>
+    {% endif %}
+    {% if post.cover-img %}
+      <img src="{{ post.cover-img }}" alt="{{ post.title }}">
+    {% endif %}
+    <div>
+      {{ post.content }}
+    </div>
+    <hr>
+  </article>
+{% endfor %}
