@@ -34,6 +34,11 @@ round-avatar: true
 # then specify the following parameter
 #title-img: /path/to/image
 
+collections:
+  _blog:
+    output: true
+    permalink: /_blog/:intro.md
+
 
 #####################################
 # --- Footer social media links --- #
