@@ -35,7 +35,7 @@ round-avatar: true
 #title-img: /path/to/image
 
 collections:
-  _blog:
+  blog:
     output: true
 
 #####################################
