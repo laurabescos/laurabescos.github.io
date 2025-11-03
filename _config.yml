@@ -13,7 +13,6 @@ author: Laura Bescós Vives
 ###############################################
 
 navbar-links:
-  Sobre mi: "aboutme"
   Trabajos:
     - Creación de una web: "/assets/fcia.html"
     - Segmentación Red: "/assets/A6-Proyecto-2T.pkt"
