@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ca">
+<style>
+  @import "https://fonts.googleapis.com/css?family=Lato:400,700";
+
+/* Estilos básicos y configuración global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Asegura que el tamaño de los elementos incluya padding y borde */
+}
+
+html {
+  font-size: 10px; /* Base para utilizar rems */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem; /* Tamaño base de texto */
+  line-height: 1.5; /* Espaciado entre líneas */
+  font-family: 'Lato', sans-serif; /* Fuente principal */
+  color: #ffffff; /* Color de texto por defecto */
+  overflow-x:hidden ;
+}
+
+/* Estilos para encabezados */
+h1 { 
+  font-size: 4rem; /* Tamaño grande para títulos principales */
+  font-weight: 900;
+  margin: rem 0 2rem 0;
+}
+
+@media (max-width: 650px){
+  h1 {
+    font-size: 2.4rem; /* Tamaño reducido en móviles */
+  }
+}
+
+h2 {
+  margin-bottom: 5rem;
+  color:#000000;
+  text-align: center;
+  border-bottom: 1px solid #76bd90; /* Raya sutil */
+  padding-bottom: 7px;
+  display: inline-block;
+  position: relative;
+}
+
+h2::after {
+  content: ""; 
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px; 
+  background-color: #ff0000; 
+}
+
+p{
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+  color: #000000;
+  position: relative; 
+  opacity: 1; 
+  display:block;
+  animation: aparecer 1.5s ease-out forwards;
+}
+
+p span {
+  display: block;
+  position: relative;
+  opacity: 0;
+  animation: aparecer 0.5s ease-out forwards;
+}
+
+.apareccer p span:nth-child(1) { animation-delay: 0.5s; }
+.aparecer p span:nth-child(2) { animation-delay: 1s; }
+.aparecer span:nth-child(3) { animation-delay: 1.5s; }
+.aparecer p span:nth-child(4) { animation-delay: 2s; }
+.aparecer p span:nth-child(5) { animation-delay: 2.5s; }
+
+
+@keyframes aparecer {
+  from {
+      transform: translateX(-30px); 
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0); 
+      opacity: 1;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+/* Enlaces */
+a {
+  color: #2b7232;
+  text-decoration: none;
+}
+
+a:hover{
+  color:#ff0000;
+}
+
+/* Imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.imagen{
+width: 100%; 
+height: 100%; 
+object-fit: cover;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagen:hover {
+  transform: scale(1.2); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+
+.imagen-con-texto {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 250px; 
+  height: 392px; 
+}
+
+.imagen-con-texto:hover .imagen {
+  transform: scale(1.2);
+}
+
+.imagen-con-texto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imagen-con-texto .texto {
+  position: absolute;
+  top: 90%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  color: #fff; 
+  padding: 3px 5px; 
+  border-radius: 2px; 
+  font-size: 1.6rem; 
+  text-align: center;
+  background-color: #bd767673;
+}
+
+iframe {
+  border: 0;
+}
+
+/* Global Classes */
+
+.column-60 {
+  float: left;
+  width: 60%;
+  padding: 0 4%;
+}
+
+.column-40 {
+  float: left;
+  padding: 0 4%;
+  width: 40%;
+}
+
+.grid::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 1000px) {
+  .column-60,
+  .column-40 {
+    width: 100%;
+    float: none;
+    padding: 0;
+  }
+  #video-div video {
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+
+  .imagen {
+    margin: auto;
+  }
+}
+
+/* Botón general */
+.btn {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #ffffffc2;
+  background-color: #2b7232;
+  padding: 1.7rem 2.5rem;
+  margin: 1.5rem 0;
+  height: 5rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  outline:none;
+}
+
+
+.btn:hover {
+  background-color: #ffffff73;
+  border-color: #ffff;
+  transition: background-color 1s;
+  color: #ff5050;
+  display: inline-block;
+  transition-duration: 1s;
+  transition-property: transform;
+  transform: scale(1.1);
+}
+
+/* Botón formulario*/
+
+.button {
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: #ff00009e;
+  color:#ffffff;
+  padding: 1.7rem 2.5rem;
+  margin: 1.5rem 0;
+  height: 5rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  outline:none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #76bd904a ;
+  color: #76bd90;
+}
+
+.button:active{
+  transform: scale(0.9);
+}
+
+.logo-img {
+  width: 49%;
+  max-width: 313px;
+}
+
+@media (max-width: 650px) {
+  .logo-img {
+    margin: 0 auto;
+  }
+}
+
+/* Contenedor flexible para diseño responsive */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.cuadro{
+  justify-content: center;
+  display:grid;
+  padding: 10rem 10rem 10rem 10rem;
+  border-radius: 5px;
+  backdrop-filter: blur(7px);
+  border:1px solid #a3c6aa;
+}
+
+.contenedor{
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  gap: 10px; 
+  flex-wrap: nowrap; 
+  overflow-x: auto;
+  flex-direction: row;
+  max-width: 100%;
+}
+
+/* Diseño de las tarjetas */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: calc(100%  / 3); /* Tres columnas */
+  margin: 1.5rem;
+  padding: 3rem 2rem 3rem 2rem;
+  border: 1px solid rgba(55, 56, 58, 0.1);
+  border-radius: 5px;
+}
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column; /* Cambio a columna en pantallas pequeñas */
+  }
+  
+  .card {
+    width: 100%;
+    margin: 1.5rem auto;
+  }
+}
+
+.card:hover {
+  box-shadow: 0 0 2rem -0.7rem #bd7676;
+  border: 1px solid #ced4ee;
+}
+
+.icon {
+  width: 200px;
+}
+
+.desc > h3 {
+  margin: 2rem 0 2rem 0;
+  color:#495057;
+}
+
+/* Header */
+
+header {
+  padding: 0rem 5rem;
+  margin: -15px auto;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  min-height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 1rem 1rem -1rem rgba(55, 56, 58, 0.2);
+}
+
+@media (max-width: 650px) {
+  header {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 650px) {
+  .logo {
+    margin: 15px auto;
+  }
+}
+
+nav {
+  font-weight: 400;
+}
+
+@media (max-width: 650px) {
+  nav {
+    margin: 15px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  nav li {
+    padding-bottom: 8px;
+  }
+}
+
+nav > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+nav li {
+    padding: 0px 10px 0px 10px;
+}
+
+/* Hero */
+
+#hero {
+  /*background-color: #4a4fbd;*/
+  height: 450px;
+  margin: 0rem 0;
+  padding-top: 12rem;
+  padding-left: 8rem;
+}
+
+.blur-image{
+    background-image: url("fcia-2.png");
+    background-size:cover;
+}
+
+
+
+@media (max-width: 1000px) {
+  #hero {
+    height: 750px;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 650px) {
+  #hero {
+    margin-top: 120px;
+    height: 900px;
+  }
+}
+
+@media (max-width: 650px) {
+  header {
+    flex-wrap: wrap;
+  }
+}
+
+#description {
+  font-size: 2rem;
+  margin-bottom: 5rem;
+}
+
+#hero .btn {
+  background-color: Transparent;
+  border: 2px solid #ffffff8e;
+}
+
+#hero .btn:hover {
+    background-color: #ffffff73;
+    transition: background-color 1s;
+}
+
+@media (max-width: 650px) {
+  #hero-img {
+    margin: 2rem auto !important;
+  }
+}
+
+/* Why section */
+
+#Perque {
+  padding: 15rem 5rem 14rem 5rem;
+  text-align: center;
+}
+
+/* Features section */
+
+#Avis {
+  padding: 15rem 5rem 14rem 15rem;
+  text-align:justify;
+}
+
+#Avis h3 {
+  width: 100%;
+  text-align: left;
+  color:#000000
+}
+
+#Categories{
+  padding: 15rem 1rem 14rem 1rem;
+  text-align: center;
+}
+
+#features ol {
+  margin: 1.5rem 3.5rem;
+}
+
+#features ol > li {
+  margin-bottom: 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Slider */
+
+.slider{
+  position: relative;
+  width: 90%;
+  display: flex;
+  aspect-ratio: 9 / 9;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0px;
+  scroll-behavior: smooth;
+  border-radius: 1rem;
+  box-shadow: 0 5rem 5rem #21212126;
+  overflow: hidden;
+}
+
+.slider img{
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+  scroll-margin-top: 1000px;
+}
+
+.slider-nav{
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  gap: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.slider-nav a{
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  background-color: #ffffff92;
+  opacity: .75;
+  transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover{
+  opacity: 100%;
+}
+
+
+/* Contact section */
+
+#Contacte {
+  padding: 15rem 5rem 4rem 5rem;
+  text-align: center;
+}
+
+form {
+  margin: 1.5rem;
+  text-align: left;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group > p {
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 4.5rem;
+  padding: 1rem;
+  color: #bd7676;
+  background-color: #fff;
+  border: 1px solid rgba(55, 56, 58, 0.1);
+  border-radius: 5px;
+  transition: border-color 0.15s ease-in-out,   box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #ced4ee;
+  outline: 0;
+  box-shadow: 0 0 1rem 0.2rem ;
+}
+
+.input-textarea {
+  min-height: 120px;
+  width: 100%;
+  padding: 1rem;
+  resize: vertical;
+  border: 1px solid rgba(55, 56, 58, 0.1);
+  border-radius: 5px;
+  transition: border-color 0.15s ease-in-out,   box-shadow 0.15s ease-in-out;
+}
+
+.input-textarea:focus {
+  border-color: #ced4ee;
+  outline: 0;
+  box-shadow: 0 0 1rem 0.1rem #bd7676;
+}
+
+.form-control, .input-textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.popup{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;  
+  height: 100vh;
+  background-image: url("popup.png");
+  background-size: cover;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.popup .success{
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  margin: 20px 0;
+  align-items: center;
+}
+
+
+.popup .error{
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.popup .btn{
+  text-decoration: none;
+  background-color: #ff5050;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.pop {
+  align-items: center;
+  width: max-content;
+  height: max-content; 
+  padding: 0 0 2rem 3rem;
+}
+
+.popu {
+  align-items: center;
+  width: max-content;
+  height: max-content; 
+  padding: 0 0 2rem 9rem;
+}
+
+
+/* Footer */
+
+footer {
+  padding: 0rem 5rem;
+  background-color:#143518 ;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+@media (max-width: 660px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+#footer-logo {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#footer-info > ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 660px) {
+  #footer-info > ul {
+    margin: 15px auto;
+  }
+}
+
+@media (max-width: 460px) {
+  #footer-info > ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  #footer-info > ul > li {
+    padding-bottom: 10px;
+  }
+}
+
+#footer-info > ul > li {
+  padding: 0 10px;
+}
+
+#footer-info > ul > li > a {
+  color: #fff;
+}
+
+#copyright {
+  margin-top: 1.5rem;
+  padding-right: 10px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.2rem;
+}
+</style>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="fcia.css?v=1.1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Productos y medicamentos en Hospitalet.">
+  <title>Farmàcia Bescós Mateu</title>
+</head>
+
+<body>
+
+<header id="header">
+  <div class="logo">
+    <img class="logo-img" id="header-img"  src="logo.png" alt="Farmàcia logo" />
+  </div>
+
+  <nav id="nav-bar">
+    <ul>
+      <li><a class="nav-link" href="#Perque">Per què  ?</a></li>
+      <li><a class="nav-link" href="#Categories">Categoríes populars</a></li>
+      <li><a class="nav-link" href="#Avis">Avís legal</a></li>
+      <li><a class="nav-link" href="#Contacte">Contacte</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section id="hero" class="blur-image">
+      <div class="grid">
+        <div class="column-60"></div>
+        <h1>FARMÀCIA BESCÓS MATEU</h1>
+        <p id="description">La teva salut, la nostra prioritat. Productes farmacèutics al teu abast.</p>
+        <a href="https://www.google.es/maps/place/FARM%C3%80CIA+BESC%C3%93S+MATEU/@41.364828,2.1178291,16z/data=!3m1!4b1!4m6!3m5!1s0x12a498e962b54185:0x6c1d7b3a84fd6086!8m2!3d41.364828!4d2.120404!16s%2Fg%2F1tf62msf?hl=es&entry=ttu&g_ep=EgoyMDI1MDEwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+           <button class="btn">Carrer d'Amadeu Torner, 115, 08902, L'Hospitalet del Llobregat</button>
+        </a> 
+       </div>
+      <div class="column-40">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="Perque">
+    <h2>¿PER QUÈ TRIAR LA NOSTRA FARMÀCIA?</h2>
+    <div class="container">
+      <div class="card">
+        <div class="icon">
+          <img  src="productos.png" alt="Productes naturals">
+        </div>
+        <div class="desc">
+          <h3>Productes naturals</h3>z
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <img  src="animals.png" alt="Testejat en animals">
+        </div>
+        <div class="desc">
+          <h3>No testejat en animals</h3>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <img  src="toxina.png" alt="Toxina">
+        </div>
+        <div class="desc">
+          <h3>Sesnse toxines</h3>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="Categories">  
+    <h2>CATEGORÍES POPULARS</h2>  
+    <div class="contenedor">
+      <div class="imagen-con-texto">
+        <img src="https://farmaciabarcelona.com/img/cms/Facial_ed.jpg" alt="Facial" class="imagen">
+        <div class="texto">Facial</div>
+    </div>
+    <div class="imagen-con-texto">
+        <img src="https://farmaciabarcelona.com/img/cms/Corporal_ed.jpg" alt="Corporal" class="imagen">
+        <div class="texto">Corporal</div>
+    </div>
+    <div class="imagen-con-texto">
+        <img src="https://farmaciabarcelona.com/img/cms/Capilar_ed.jpg" alt="Capilar" class="imagen">
+        <div class="texto">Capilar</div>
+    </div>
+    <div class="imagen-con-texto">
+        <img src="https://farmaciabarcelona.com/img/cms/Solar_ed.jpg" alt="Solares" class="imagen">
+        <div class="texto">Solar</div>
+    </div>
+    <div class="imagen-con-texto">
+        <img src="https://farmaciabarcelona.com/img/cms/Nutricosmetica_ed.jpg" alt="Nutricosmética" class="imagen">
+        <div class="texto">Nutricosmètica</div>
+    </div>
+    <div class="imagen-con-texto">
+        <img src="https://farmaciabarcelona.com/img/cms/Promociones_ed.jpg" alt="Promociones" class="imagen">
+        <div class="texto">Promocions</div>
+    </div>
+  </div>
+  </section>
+
+  <section id="Avis">
+    <div class="grid">
+      <h2>AVÍS LEGAL</h2>
+      <div class="column-40">
+        <div class="slider">
+          <img id= "slider1" img src="farmaceutic.png" alt="Farmacèutic">
+          <img id= "slider2" img src="farmaceutica.png" alt="Farmacèutica">
+
+          <div class="slider-nav">
+            <a href="#slider1"></a>
+            <a href="#slider2"></a>
+          </div>
+          </div>
+        </div>
+
+      <div class="column-60-2">
+        <ol>
+          <li>
+            <h3>Responsable</h3>
+            <p calss="aparecer">
+            <span>Farmàcia Bescós Mateu</span><br>
+            <span>Enric Bescós Mateu i Misericòrdia Mateu</span><br>
+            <span>Carrer d'Amadeu Torner, 115</span><br>
+            <span>08902 L'Hospitalet de Llobregat</span><br>
+            <span>Barcelona</span>
+          </p>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <section id="Contacte">
+    <h2>CONTACTE </h2>
+    <div class="grid">
+      <div class="column-60">
+        <form id="form" action="submit.php" method="POST">
+          <div class="form-group">
+            <label id="name-label" for="name">Nom</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Nom" required />
+          </div>
+          <div class="form-group">
+            <label id="email-label" for="email">Correu</label>
+            <input name="email" class="form-control" id="email" type="email" placeholder="Adreça electrònica" required />
+          </div>
+          <div class="form-group">
+            <p>Missatge</p>
+            <textarea id="message" class="input-textarea" name="message" placeholder="Introdueix el teu missatge aquí..."></textarea>
+          </div>
+          <div class="form-group">
+            <label id="submit-label" for="submit"></label>
+            <input id="submit" type="submit" value="Enviar" class="button" />
+          </div>
+        </form>
+      </div>
+      <div class="column-40">
+        <div class="video-div">
+          <video width="472" height="495" loop autoplay muted>
+            <source src="formulari.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer>
+      <div id="footer-logo">
+        <img class="logo-img"  src="logo.png" alt="Farmàcia logo" />
+      </div>
+      <div id="footer-info">
+        <ul>
+          <li><a href="#">Política de privacitat</a></li>
+          <li><a href="#">Atenció al client</a></li>
+          <li><a href="#">Contacte</a></li>
+        </ul>
+        <div id="copyright">Copyright 2020, Remedi</div>
+      </div>
+  </div> 
+  </footer>
+
+</main>
+
+</body>
+
+</html>
