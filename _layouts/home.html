@@ -4,22 +4,18 @@ layout: page
 
 {{ content }}
 
+<h2>Debugger: Colecciones disponibles</h2>
+<p>site.blog contiene: {{ site.blog.size }} elementos</p>
+
 {% if site.blog.size > 0 %}
+  <ul>
   {% for post in site.blog %}
-    <article>
-      <h2>{{ post.title }}</h2>
-      {% if post.subtitle %}
-        <h3>{{ post.subtitle }}</h3>
-      {% endif %}
-      {% if post.cover-img %}
-        <img src="{{ post.cover-img }}" alt="{{ post.title }}" style="max-width: 100%;">
-      {% endif %}
-      <div>
-        {{ post.content }}
-      </div>
-      <hr>
-    </article>
+    <li>{{ post.title }} - {{ post.path }}</li>
   {% endfor %}
+  </ul>
 {% else %}
-  <p>No hay posts disponibles.</p>
+  <p>No hay posts en site.blog</p>
 {% endif %}
+
+<h2>Posts estándar</h2>
+<p>site.posts contiene: {{ site.posts.size }} elementos</p>
