@@ -1,6 +1,6 @@
 ---
-Layout: Page
-Title: Experiencia Laboral
+layout: Page
+title: Experiencia Laboral
 ---
 
 > Abril 2025 - Actualidad
