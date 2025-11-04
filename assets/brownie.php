@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+/*  VARIABLES GLOBALES  */
+
+:root {
+
+  /* Fuentes */
+
+  --font-bold: 'Montserrat-Bold';
+  --font-light: 'Montserrat-Light';
+  --font-medium: 'Montserrat-Medium';
+  --font-regular: 'Montserrat-Regular';
+  --font-semibold: 'Montserrat-SemiBold';
+  --font-extralight: 'Montserrat-ExtraLight';
+  
+  /* Colores */
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-light: #EDEDED;
+  --color-gray-medium: #777478;
+  --color-gray-dark: #494948;
+  --color-placeholder: #555555;
+  --color-transparent-black: #0000002f;
+  --color-shadow: #00000056;
+  --color-border: #979797;
+  --color-checkbox: #8d858eb0;
+  
+  /* Espaciados */
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --spacing-xxl: 6rem;
+  
+  /* Tamaños */
+
+  --header-height: 85px;
+  --nav-height: 50px;
+  --logo-height: 23.5px;
+  --icon-size: 18px;
+  --search-height: 44px;
+  
+  /* Transiciones */
+
+  --transition-fast: 0.3s;
+  --transition-normal: 0.5s;
+}
+
+/*  FUENTES  */
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('fonts/Montserrat-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url('fonts/Montserrat-Light.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('fonts/Montserrat-Medium.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('fonts/Montserrat-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url('fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat-ExtraLight';
+  src: url('fonts/Montserrat-ExtraLight.ttf') format('truetype');
+  font-display: swap;
+}
+
+/*  RESET Y ESTILOS BASE  */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+}
+
+html, body {
+  overflow-x: hidden;
+  font-family: var(--font-regular);
+}
+
+/*  HEADER  */
+
+.main-header {
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+}
+
+.header {
+  background-color: transparent;
+  width: fit-content;
+  height: var(--nav-height);
+  padding: 17px 0 0 55px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-btn {
+  width: 15%;
+}
+
+.btn {
+  border: none;
+  background: transparent;
+  font-size: 34px;
+  cursor: pointer;
+  width: 25px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  margin: -2px -1px 0 1px;
+}
+
+.logo {
+  width: auto;
+  height: var(--logo-height);
+  margin: 0 0 0 var(--spacing-xs);
+}
+
+.div-logo {
+  margin: 0 0 0 27px;
+  width: 15%;
+  height: max-content;
+  display: contents;
+}
+
+.relleno {
+  width: 40%;
+  padding: 0 0 0 76.5dvw;
+}
+
+.div-icons {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1.3rem;
+  margin: 0 0 2px 12px;
+}
+
+.icons {
+  padding: none;
+  width: var(--icon-size);
+  height: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/*  MENÚ LATERAL  */
+
+#nav-btn {
+  display: none;
+}
+
+.container-menu {
+  position: absolute;
+  background-color: var(--color-transparent-black);
+  width: 100%;
+  height: 178rem;
+  top: 0;
+  left: 0;
+  transition: all var(--transition-normal) ease;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 90;
+}
+
+#nav-btn:checked ~ .container-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cont-menu {
+  width: 100%;
+  max-width: 484px;
+  background: var(--color-white);
+  height: 1800vh;
+  position: relative;
+  transition: all var(--transition-normal) ease;
+  box-shadow: 3px 4px 13px var(--color-shadow);
+  position: fixed;
+}
+
+.cont-menu nav {
+  transform: translateY(1%);
+}
+
+.cont-menu nav a {
+  display: block;
+  text-decoration: none;
+  padding: 1.5dvh 0 0 3dvh;
+  background: var(--color-white);
+  color: var(--color-black);
+  border-left: 30px solid transparent;
+  transition: all 400ms ease;
+  font-family: var(--font-bold);
+  font-size: 24px;
+}
+
+#nav-btn:checked ~ .container-menu .cont-menu {
+    transform: translateX(0%);
+}
+
+.cont-menu label {
+  position: absolute;
+  top: 10px;
+  color: var(--color-black);
+  cursor: pointer;
+  font-size: 24px;
+  margin: 1dvh 0 0 6.2dvh;
+}
+
+/*  IMÁGENES MENÚ LATERAL  */
+
+.img-menu {
+  width: auto;
+  height: 19.6px;
+  margin: 3dvh 0 0 10dvh;
+}
+
+.logo-menu {
+  margin: 0 0 0 27px;
+  height: max-content;
+  display: contents;
+}
+
+/*  BUSCADOR  */
+
+.cajabuscar {
+  float: none;
+  width: 100%;
+  max-width: 453px;
+  margin: var(--spacing-lg) auto;
+  display: inline-block;
+  text-align: left;
+}
+
+#buscarform {
+  padding: 0;
+  float: left;
+  clear: both;
+  width: 100%;
+  position: relative;
+}
+
+#buscarform fieldset {
+  float: left;
+  margin-left: 5.9dvh;
+  width: 82%;
+}
+
+#buscarform .search {
+  font-size: 20px;
+  color: var(--color-white);
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 9px;
+  height: 24px;
+  width: 24px;
+  text-align: center;
+}
+
+#s {
+  width: 100%;
+  background-color: var(--color-white);
+  float: left;
+  text-indent: 4dvh;
+  color: var(--color-placeholder);
+  border: 1px solid var(--color-gray-light);
+  border-radius: 2px;
+  box-sizing: border-box;
+  height: var(--search-height);
+  font-family: var(--font-regular);
+  font-size: 15px;
+  background-image: url(multimedia/buscar.png);
+  background-repeat: no-repeat;
+  background-size: 14px;
+  background-position: left 10px center;
+}
+
+#s:focus {
+  padding: 8px 0;
+  text-indent: 4dvh;
+  color: var(--color-placeholder);
+  border: 1px solid var(--color-gray-light);
+  border-radius: 2px;
+  box-sizing: border-box;
+  height: 42px;
+}
+
+/*  SECCIÓN NEW-SEASON  */
+
+.new-season {
+  padding: var(--spacing-xl) 10rem var(--spacing-sm) 10rem;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.card {
+  padding-top: var(--spacing-sm);
+  width: 50vh;
+  height: auto;
+  display: flex;
+}
+
+.img-fondo {
+  max-width: 100%;
+  background-image: cover;
+  cursor: pointer;
+}
+
+.background {
+  width: 100%;
+}
+
+.img {
+  width: 50vh;
+  height: auto;
+  cursor: pointer;
+}
+
+.text {
+  float: left;
+  padding-left: 27.5vh;
+  font-family: var(--font-light);
+  font-size: 14px;
+  color: var(--color-gray-medium);
+}
+
+.text2 {
+  float: right;
+  padding-right: 27.5vh;
+  font-family: var(--font-light);
+  font-size: 14px;
+  color: var(--color-gray-medium);
+}
+
+/*  SECCIÓN ROMANTIC-SEASON  */
+
+.romantic-img {
+  width: 100%;
+  height: auto;
+  padding-top: var(--spacing-xxl);
+  cursor: pointer;
+}
+
+/*  FOOTER  */
+
+/* Sección 1 */
+
+.F1 {
+  float: left;
+  padding: var(--spacing-xxl) 0 0 7.7rem;
+  font-family: 'Montserrat';
+  width: 100%;
+}
+
+.f1-1 {
+  letter-spacing: 1px;
+}
+
+.f1-2 {
+  font-family: var(--font-regular);
+  font-size: 13px;
+  color: var(--color-gray-dark);
+}
+
+/* Sección 2 */
+
+.F2 {
+  width: 100%;
+  padding: 16rem 0 0 7.7rem;
+  font-family: 'Montserrat';
+}
+
+/*  NEWSLETTER  */
+
+.newsletter {
+  letter-spacing: 1px;
+  padding-bottom: 0.5rem;
+  width: fit-content;
+}
+
+.mail {
+  float: left;
+  padding: 6.5rem 0 0 7.7rem;
+  font-family: 'Montserrat';
+}
+
+.cajamail {
+  border-bottom: 1px solid var(--color-border);
+  font-family: Helvetica;
+  font-size: 11px;
+  height: 20px;
+  letter-spacing: 1px;
+  width: 35dvh;
+  color: var(--color-gray-dark);
+  margin-bottom: 0.5rem;
+}
+
+.insrt-mail {
+  width: fit-content;
+}
+
+.cajamail:focus {
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-gray-dark);
+}
+
+.cajamail::placeholder {
+  transform: translateY(-3px);
+}
+
+.condiciones {
+  padding-top: 0.6rem;
+  display: flex;
+  flex-direction: row;
+  width: 67%;
+}
+
+/*  CHECKBOX  */
+
+.checkBox {
+  display: block;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--color-checkbox);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 0.5px 0px var(--color-checkbox);
+}
+
+.checkBox div {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-black);
+  top: -52px;
+  left: -52px;
+  position: absolute;
+  transform: rotateZ(45deg);
+  z-index: 100;
+  border: 1px solid var(--color-black);
+}
+
+.checkBox input[type=checkbox]:checked + div {
+  left: -10px;
+  top: -10px;
+}
+
+.checkBox input[type=checkbox] {
+  position: absolute;
+  left: 50px;
+  visibility: hidden;
+}
+
+.txt-cond {
+  padding-left: var(--spacing-xs);
+  width: 70%;
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--color-gray-medium);
+}
+
+.txt-cond a {
+  color: var(--color-gray-medium);
+}
+
+/*  BOTÓN MAIL  */
+
+.btn-mail {
+  width: 69px;
+  align-items: center;
+  vertical-align: middle;
+  background-color: transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0;
+}
+
+.row {
+  font-family: var(--font-bold);
+  color: var(--color-black);
+  font-size: 23px;
+  line-height: 36px;
+  letter-spacing: 1.95px !important;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+</style>
+<head>
+    <link rel="preload" href="/themes/classic-rocket/assets/fonts/montserrat/Montserrat-Bold.ttf" as="font">
+    <link rel="preload" href="/themes/classic-rocket/assets/fonts/montserrat/Montserrat-Light.ttf" as="font">
+    <link rel="preload" href="/themes/classic-rocket/assets/fonts/montserrat/Montserrat-Medium.ttf" as="font">
+    <link rel="preload" href="/themes/classic-rocket/assets/fonts/montserrat/Montserrat-Regular.ttf" as="font">
+    <link rel="preload" href="/themes/classic-rocket/assets/fonts/montserrat/Montserrat-SemiBold.ttf" as="font">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de ropa de mujer | BROWNIE</title>
+    <link rel="stylesheet" href="/public/css/brownie.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="main-header">
+    <div class="header">
+        <div class="container">
+            <div class="nav-btn">
+                <label for="nav-btn" class="btn">≡</label>
+            </div>
+
+            <div class="div-logo">
+                <img class="logo" src="multimedia/logo.png" alt="logo Brownie">
+            </div>
+
+            <div class="relleno"></div>
+
+            <div class="div-icons">
+                <img class="icons" src="multimedia/buscar.png" alt="Buscador">
+                <img class="icons" src="multimedia/cuenta.png" alt="Mi cuenta">
+                <img class="icons" src="multimedia/lista_deseos.png" alt="Lista de deseos"> 
+                <img class="icons" src="multimedia/carrito.png" alt="Carrito">
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- MENÚ LATERAL -->
+
+<input type="checkbox" id="nav-btn">
+<div class="container-menu">
+    <div class="cont-menu">
+        <div class="logo-menu">
+            <img class="img-menu" src="multimedia/logo.png" alt="Brownie logo">
+        </div>
+
+        <div class="cajabuscar">
+            <form method="get" id="buscarform">
+                <fieldset>
+                    <input type="searchbar" id="s" value="" placeholder="¿Qué estás buscando?">
+                </fieldset>
+            </form>
+        </div>
+
+        <nav>
+            <a href="#">NOVEDADES</a>
+            <a href="#">ROPA</a>
+            <a href="#">ZAPATOS</a>
+            <a href="#">BOLSOS</a>
+            <a href="#">ACCESORIOS</a><br>
+            <a href="#">EDITORIALES</a>
+            <a href="#">BROWNIE WORLD</a>
+        </nav>
+        <label for="nav-btn">🞨</label>
+    </div>
+</div>
+
+    <div class="img-fondo">
+        <img class="background" src="multimedia/ppl_DESKTOP.jpg" alt="Spring/Summer season">
+    </div>
+
+<section class="new-season">
+    
+    <div class="card">
+        <img class="img" src="multimedia/faldas.png" alt="Faldas">
+    </div>
+
+    <div class="card">
+        <img class="img" src="multimedia/img-mid.png">
+    </div>
+
+    <div class="card">
+        <img class="img" src="multimedia/chaquetas.png" alt="chaquetas">
+    </div>
+</section>
+
+<!-- IMÁGENES SECCIÓN NEW-SEASON -->
+
+<div class="text">
+    <H1>FALDAS</H1>
+</div>
+
+<div class="text2">
+    <H1>CHAQUETAS</H1>
+</div>
+
+
+<!-- SECCIÓN ROMANTIC SEASON -->
+
+<section class ="romantic-seeason">
+    <img class = "romantic-img" src = "multimedia/romantic_DESKTOP.png" alt="Romantic Season">
+</section>
+
+
+<!-- Footer -->
+
+<Footer>
+
+<Footer id = "footer">
+    <div class="F1">
+        <div class="f1-1">
+            <H1>BROWNIE</H1><br>
+        </div>
+        
+        <div class="f1-2">
+            <p>Designed for your everyday happiness to dress young spirits around the world.</p>
+        </div>
+    </div>
+
+
+<section class = "F2">
+<div class="social">
+    <div class="newsletter">
+        <H1>NEWSLETTER</H1>
+    </div>
+
+    <div class="insrt-mail">
+        <input type = "email" class="cajamail" value placeholder="INTRODUCE TU E-MAIL" autocomplete="email">
+        <button class="btn-mail" type="submit" name="submitNewsletter" disabled="disabled">
+            <img class="btn-mail" src="multimedia/flecha_NoVisible.png">
+        </button>
+    </div>
+
+    <div class="condiciones">
+        <label class="checkBox">
+            <input id="ch1" type="checkbox">
+            <div class="transition"></div>
+        </label>
+        
+        <div class="txt-cond">
+            <p>Acepto recibir comunicaciones de TEXTILES Y CONFECCIONES BROWNIE, S.L. adaptadas a mis intereses, de acuerdo con su <a href ="https://www.browniespain.com/politica_legal/PoliticaDePrivacidad.pdf" target="_blank">Política de Privacidad</a>.</p>
+        </div>
+    </div>
+
+    <div class="row">
+            <a class="link" href="https://www.instagram.com/browniespain/" target="_blank">INSTAGRAM</a>
+            <a class="link" href="https://www.facebook.com/browniespain" target="_blank">FACEBOOK</a>
+            <a class="link" href="https://es.pinterest.com/brownie_spain/" target="_blank">PINTEREST</a>
+        </div>
+        <div class="row">
+            <a class="link" href="https://www.youtube.com/channel/UCnDt7Kjl2LsiMgPKF-trwzg" target="_blank">YOUTUBE</a>
+            <a class="link" href="https://open.spotify.com/playlist/2ia8YsFJvMM6WR8IuHLGD1" target="_blank">SPOTIFY</a>
+            <a class="link" href="https://www.tiktok.com/@browniespain" target="_blank">TIK TOK</a>
+        </div>
+    </div>
+</div>
+</section>
+</Footer>
+
+    
+
+
+
+<section class="redes">
+
+
+</Footer>
+
+
+</body>
+</html>
