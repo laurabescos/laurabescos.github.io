@@ -6,7 +6,7 @@ title: Experiencia Laboral
 
 > Abril 2025 - Diciembre 2026
 
-Prácticas como Técnica de sistemas en Arag.
+Prácticas como Técnica de sistemas en ARAG.
 
 > Marzo 2026
 
